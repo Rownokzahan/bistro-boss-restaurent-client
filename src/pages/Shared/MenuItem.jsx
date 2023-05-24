@@ -1,7 +1,7 @@
 
 const MenuItem = ({ item }) => {
 
-    const { image, name, recipe, price } = item
+    const { image, name, recipe, price } = item;
     return (
         <div className="flex gap-8">
             <div>

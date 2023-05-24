@@ -10,7 +10,7 @@ const NavBar = () => {
             <ActiveLink to={'/contact'}>CONTACT us</ActiveLink>
             <ActiveLink to={'/dashboard'}>DASHBOARD</ActiveLink>
             <ActiveLink to={'/menu'}>Our Menu</ActiveLink>
-            <ActiveLink to={'/shop'}>Our Shop</ActiveLink>
+            <ActiveLink to={'/order/salad'}>Order</ActiveLink>
             <div className="flex gap-2 items-center">
                 <button className="">Sign Out</button>
                 <FaUserCircle className="text-xl"/>
