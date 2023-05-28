@@ -17,6 +17,7 @@ const Register = () => {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const image = form.image.files[0];
     const password = form.password.value;
 
     if (password.length < 6) {
@@ -25,14 +26,29 @@ const Register = () => {
     }
 
     register(email, password)
-      .then((result) => {
-        setUserInfo(name)
-          .then(() => {
-            form.reset();
-            navigate("/login");
-          })
-          .catch((error) => {
-            console.log(error.message);
+      .then(() => {
+        // Image Upload In Imgbb
+        const formData = new FormData();
+        formData.append("image", image);
+
+        const url = `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_IMGBB_KEY
+        }`;
+        fetch(url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const imageUrl = data.data.display_url;
+            setUserInfo(name, imageUrl)
+              .then(() => {
+                form.reset();
+                navigate("/login");
+              })
+              .catch((error) => {
+                console.log(error.message);
+              });
           });
       })
       .catch((error) => {
@@ -67,6 +83,16 @@ const Register = () => {
                 name="name"
                 id="name"
                 className="input input-bordered"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label htmlFor="name">Image</label>
+              <input
+                type="file"
+                name="image"
+                id="image"
+                className="input input-bordered pt-2"
               />
             </div>
 
