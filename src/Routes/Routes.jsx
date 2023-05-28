@@ -5,6 +5,9 @@ import Menu from "../pages/Menu/Menu";
 import Order from "../pages/Order/Order";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Dashboard from "../Layouts/Dashboard";
+import Dashboard_Home from "../pages/Dashboard/Home/Home"
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 
 export const router = createBrowserRouter([
   {
@@ -18,22 +21,37 @@ export const router = createBrowserRouter([
 
       {
         path: "/menu",
-        element: <Menu/>
+        element: <Menu />,
       },
 
       {
         path: "/order/:category",
-        element: <Order/>
+        element: <Order />,
       },
 
       {
         path: "/login",
-        element: <Login/>
+        element: <Login />,
       },
 
       {
         path: "/register",
-        element: <Register/>
+        element: <Register />,
+      },
+    ],
+  },
+
+  {
+    path: "/dashboard", // Updated path
+    element: <Dashboard />,
+    children: [
+      {
+        path: "",
+        element: <Dashboard_Home />,
+      },
+      {
+        path: "my-cart", // Updated path
+        element: <MyCart />,
       },
     ],
   },

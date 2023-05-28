@@ -22,7 +22,7 @@ const NavBar = () => {
       <ActiveLink to={"/contact"}>CONTACT us</ActiveLink>
       <ActiveLink to={"/menu"}>Our Menu</ActiveLink>
       <ActiveLink to={"/order/salad"}>Order Now</ActiveLink>
-      <ActiveLink to={"/cart"}>
+      <ActiveLink to={"/dashboard/my-cart"}>
         <div className="relative">
           <HiOutlineShoppingCart />
           <span className="absolute -top-4 -right-2 text-[#BB8506]">
