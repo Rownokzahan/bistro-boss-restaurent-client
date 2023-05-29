@@ -5,14 +5,30 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogins = () => {
   const { signInWithGoogle } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location?.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleSignInWithGoogle = () => {
     signInWithGoogle()
-      .then(() => {
-        navigate(from, { replace: true });
+      .then((result) => {
+        const user = {
+          name: result?.user?.displayName,
+          email: result?.user?.email,
+          imageUrl: result?.user?.photoURL,
+        };
+        fetch(`http://localhost:5000/users`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            navigate(from, { replace: true });
+          })
+          .catch((error) => console.log(error));
       })
       .catch((error) => console.log(error.message));
   };

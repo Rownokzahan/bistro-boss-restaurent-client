@@ -43,8 +43,22 @@ const Register = () => {
             const imageUrl = data.data.display_url;
             setUserInfo(name, imageUrl)
               .then(() => {
-                form.reset();
-                navigate("/login");
+                const user = { name, email, imageUrl };
+                fetch(`http://localhost:5000/users`, {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(user),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (data.insertedId) {
+                      form.reset();
+                      navigate("/login");
+                    }
+                  })
+                  .catch((error) => console.log(error));
               })
               .catch((error) => {
                 console.log(error.message);
