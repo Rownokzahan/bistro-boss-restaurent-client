@@ -1,20 +1,20 @@
 import { useContext } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useCart from "../hooks/useCart";
+import useCart from "../../hooks/useCart";
 
 const FoodCard = ({ item }) => {
   const { _id, image, name, recipe, price } = item;
   const { user } = useContext(AuthContext);
-  const [ ,refetch ] = useCart();
+  const [, refetch] = useCart();
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleAddToCart = () => {
     if (user) {
-      const cartItem = { foodId: _id, userId: user.uid };
+      const cartItem = { foodId: _id, email: user?.email };
 
       fetch(`http://localhost:5000/carts`, {
         method: "POST",

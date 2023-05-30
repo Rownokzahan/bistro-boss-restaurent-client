@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import banner from "../../assets/shop/banner2.jpg";
 import Cover from "../Shared/Cover";
-import FoodCard from "../../components/FoodCard";
+import FoodCard from "./FoodCard";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
