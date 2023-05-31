@@ -10,6 +10,8 @@ import Dashboard_Home from "../pages/Dashboard/Home/Home"
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import PrivateRoute from "./PrivateRoute";
 import Users from "../pages/Dashboard/Users/Users";
+import AddFood from "../pages/Dashboard/AddFood/AddFood";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +64,14 @@ export const router = createBrowserRouter([
       {
         path: "users",
         element: <Users />,
+      },
+      {
+        path: "add-food",
+        element: (
+          <AdminRoute>
+            <AddFood />
+          </AdminRoute>
+        ),
       },
     ],
   },

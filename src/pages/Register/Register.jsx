@@ -32,7 +32,7 @@ const Register = () => {
         formData.append("image", image);
 
         const url = `https://api.imgbb.com/1/upload?key=${
-          import.meta.env.VITE_IMGBB_KEY
+          import.meta.env.VITE_IMAGE_UPLOAD_TOKEN
         }`;
         fetch(url, {
           method: "POST",

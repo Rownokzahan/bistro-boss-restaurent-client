@@ -9,6 +9,12 @@ const AdminLinks = () => {
       <ActiveLink to={"/dashboard"} icon={AiFillHome} label="Admin Home" />
 
       <ActiveLink
+        to={"/dashboard/add-food"}
+        icon={FaUtensils}
+        label="Add Food"
+      />
+
+      <ActiveLink
         to={"/dashboard/foods"}
         icon={FaUtensils}
         label="Manage Foods"
