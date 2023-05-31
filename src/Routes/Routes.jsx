@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import Users from "../pages/Dashboard/Users/Users";
 import AddFood from "../pages/Dashboard/AddFood/AddFood";
 import AdminRoute from "./AdminRoute";
+import ManageFood from "../pages/Dashboard/ManageFood/ManageFood";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AddFood />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "foods",
+        element: (
+          <AdminRoute>
+            <ManageFood />
           </AdminRoute>
         ),
       },
