@@ -2,19 +2,17 @@ import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../../components/SectionTitle";
 import { FaUtensils } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
 
 const AddFood = () => {
-  const [selected, setSelected] = useState("");
   const [axiosSecure] = useAxiosSecure();
   const image_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
@@ -76,7 +74,7 @@ const AddFood = () => {
               </label>
               <select
                 name="category"
-                defaultValue={selected}
+                defaultValue={""}
                 {...register("category", { required: true })}
                 id="category"
                 className="select select-bordered"
