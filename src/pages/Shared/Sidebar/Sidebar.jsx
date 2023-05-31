@@ -2,10 +2,12 @@ import FrontendLinks from "./FrontendLinks";
 import AdminLinks from "./AdminLinks";
 import UserLinks from "./UserLinks";
 import SidebarLogo from "./SidebarLogo";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Sidebar = () => {
   //TODO: Checking Admin will be dynamic from database data
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="bg-[#D1A054] w-max py-6 px-2 md:py-12 md:pl-8 md:pr-12 min-h-screen">
