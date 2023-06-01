@@ -45,8 +45,7 @@ const FoodItemRow = ({ foodItem, index, refetch }) => {
       <td className="px-8 py-8">
         <div className="flex gap-4">
           <Link
-            to={`/dashboard/foods/${_id}`}
-            onClick={() => handleDelete()}
+            to={`/dashboard/update-food/${_id}`}
             className="bg-[#D1A054] p-2 w-min rounded"
           >
             <FiEdit className="text-xl text-white" />

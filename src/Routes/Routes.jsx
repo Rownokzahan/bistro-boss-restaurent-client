@@ -13,6 +13,7 @@ import Users from "../pages/Dashboard/Users/Users";
 import AddFood from "../pages/Dashboard/AddFood/AddFood";
 import AdminRoute from "./AdminRoute";
 import ManageFood from "../pages/Dashboard/ManageFood/ManageFood";
+import UpdateFood from "../pages/Dashboard/UpdateFood/UpdateFood";
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +74,16 @@ export const router = createBrowserRouter([
             <AddFood />
           </AdminRoute>
         ),
+      },
+      {
+        path: "update-food/:id",
+        element: (
+          <AdminRoute>
+            <UpdateFood />
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/menu/${params.id}`),
       },
       {
         path: "foods",
