@@ -14,6 +14,7 @@ import AddFood from "../pages/Dashboard/AddFood/AddFood";
 import AdminRoute from "./AdminRoute";
 import ManageFood from "../pages/Dashboard/ManageFood/ManageFood";
 import UpdateFood from "../pages/Dashboard/UpdateFood/UpdateFood";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -64,8 +65,16 @@ export const router = createBrowserRouter([
         element: <MyCart />,
       },
       {
+        path: "payment",
+        element: <Payment />,
+      },
+      {
         path: "users",
-        element: <Users />,
+        element: (
+          <AdminRoute>
+            <Users />
+          </AdminRoute>
+        ),
       },
       {
         path: "add-food",

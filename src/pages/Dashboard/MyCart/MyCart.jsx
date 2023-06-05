@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
 import SectionTitle from "../../../components/SectionTitle";
 import CartItemRow from "./CartItemRow";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
@@ -22,7 +23,7 @@ const MyCart = () => {
               total price: $
               {cart?.reduce((sum, item) => sum + item.food?.price, 0)}
             </h3>
-            <button className="bg-[#D1A054] px-4 py-2 rounded text-white text-lg">Pay</button>
+            <Link to={'/dashboard/payment'} className="bg-[#D1A054] px-4 py-2 rounded text-white text-lg">Pay</Link>
           </div>
 
           <div className="overflow-x-auto">

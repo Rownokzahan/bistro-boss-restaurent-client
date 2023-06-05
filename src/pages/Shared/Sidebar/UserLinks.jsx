@@ -21,7 +21,7 @@ const UserLinks = () => {
       />
 
       <ActiveLink
-        to={"/dashboard/payment"}
+        to={"/dashboard/payment-history"}
         icon={IoWalletSharp}
         label="Payment History"
       />
